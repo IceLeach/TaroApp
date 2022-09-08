@@ -39,7 +39,7 @@ const config = {
     },
   },
   h5: {
-    publicPath: "/",
+    publicPath: "/dcimH5",
     staticDirectory: "static",
     devServer: {
       https: true,

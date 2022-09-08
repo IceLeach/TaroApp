@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Taro from '@tarojs/taro';
 import { View, Text, Image } from '@tarojs/components';
-import QrScannerComponent from './components/QrScanner';
+import QrScannerComponent from '../../components/QrScanner';
 import headerImg from '../../assets/headerImg.png';
 import headerIcon from '../../assets/headerIcon.png';
 import scanToView from '../../assets/scanToView.png';
 import scanToCount from '../../assets/scanToCount.png';
 import countRecord from '../../assets/countRecord.png';
 import './index.less';
+// import { AtModal } from 'taro-ui';
 
 const IndexPage: React.FC = () => {
   const [text, setText] = useState<string>('');
   const [qrScannerVisible, setQrScannerVisible] = useState<boolean>(false);
+  // const [show, setShow] = useState<boolean>(false);
 
   useEffect(() => {
     if (qrScannerVisible) {
@@ -73,7 +75,7 @@ const IndexPage: React.FC = () => {
             className='button'
             onClick={() => {
               Taro.redirectTo({
-                url: '/pages/detail/index'
+                url: '/pages/inventory/index'
               });
             }}
           >
@@ -89,6 +91,11 @@ const IndexPage: React.FC = () => {
           </View>
           <View
             className='button'
+            onClick={() => {
+              Taro.redirectTo({
+                url: '/pages/detail/index'
+              });
+            }}
           >
             <View className='buttonBody'>
               <View className='imgBlock'>
@@ -105,6 +112,16 @@ const IndexPage: React.FC = () => {
               </View>
             </View>
           </View>
+          {/* <AtModal
+            isOpened={show}
+            title='标题'
+            cancelText='取消'
+            confirmText='确认'
+            // onClose={this.handleClose}
+            // onCancel={this.handleCancel}
+            // onConfirm={this.handleConfirm}
+            content='欢迎加入京东凹凸实验室\n\r欢迎加入京东凹凸实验室'
+          /> */}
         </View>
       </View>
     </View>

@@ -1,6 +1,6 @@
-.main{
-  background: linear-gradient(180deg, #0F1E35 -10.87%, #1D397A 100%);
-  height: 100%;
+.detail_main{
+  background: #1E366D;
+  min-height: 100%;
   color: #fff;
   .header{
     height: 189px;
@@ -22,25 +22,17 @@
       }
     }
   }
-  .body{
-    margin-top: 33px;
-    padding: 0 43px;
-    height: calc(100% - 222px);
-    .title{
-      width: 100%;
+  .detail_body{
+    .detail_navBar{
       height: 108px;
-      background: #303E75;
-      box-shadow: 0px 2px 26px -4px #0C1229;
-      border-radius: 8px;
-      font-size: 36px;
-      text-align: center;
-      line-height: 108px;
+      border-bottom: 2px solid #132445;
     }
     .infoButtonsRow{
       display: flex;
-      margin-top: 50px;
+      padding: 50px 43px 0;
+      background: #1E366D;
       .infoButton{
-        width: calc(100% / 4);
+        width: calc(100% / 3);
         font-size: 36px;
         text-align: center;
       }
@@ -57,8 +49,8 @@
       }
     }
     .infoData{
-      margin-top: 42px;
-      padding: 0 31px;
+      padding: 42px 74px;
+      background: #1E366D;
       .infoRow{
         display: flex;
         justify-content: space-between;

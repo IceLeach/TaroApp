@@ -37,6 +37,9 @@ const IndexPage: React.FC = () => {
             onResult={(result) => {
               setText(result);
               setQrScannerVisible(false);
+              Taro.redirectTo({
+                url: '/pages/detail/index'
+              });
             }}
             onError={() => {
               setQrScannerVisible(false);
@@ -93,7 +96,7 @@ const IndexPage: React.FC = () => {
             className='button'
             onClick={() => {
               Taro.redirectTo({
-                url: '/pages/detail/index'
+                url: '/pages/record/index'
               });
             }}
           >

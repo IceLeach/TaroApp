@@ -1,0 +1,115 @@
+.at-nav-bar.at-nav-bar{
+  background: #1E366D;
+  .at-nav-bar__left-view:active{
+    background: #1E366D;
+  }
+  .at-nav-bar__title{
+    color: #fff;
+    font-size: 36px;
+  }
+  &::after{
+    display: none;
+  }
+}
+
+.at-input.at-input{
+  margin: 0;
+  background: rgba(48, 62, 117, 0.6);
+  color: #fff;
+  border: 1px solid #1C5182;
+  box-shadow: inset 0px 0px 6px 1px #1F3FB6;
+  padding: 20px 0;
+  .at-input__input{
+    padding: 0 22px;
+  }
+  input{
+    color: #fff;
+    height: 40px;
+  }
+  /* WebKit browsers */
+  input::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  /* Mozilla Firefox 4 to 18 */
+  input:-moz-placeholder {
+    color: #ccc;
+  }
+  /* Mozilla Firefox 19+ */
+  input::-moz-placeholder {
+    color: #ccc;
+  }
+  /* Internet Explorer 10+ */
+  input:-ms-input-placeholder {
+    color: #ccc;
+  }
+  &::after{
+    display: none;
+  }
+}
+.at-textarea.at-textarea{
+  background: rgba(48, 62, 117, 0.6);
+  border: 1px solid #1C5182;
+  box-shadow: inset 0px 0px 6px 1px #1F3FB6;
+  border-radius: 8px;
+  textarea{
+    background: transparent;
+    color: #fff;
+    height: 100%;
+  }
+  /* WebKit browsers */
+  textarea::-webkit-input-placeholder {
+    color: #ccc;
+  }
+  /* Mozilla Firefox 4 to 18 */
+  textarea:-moz-placeholder {
+    color: #ccc;
+  }
+  /* Mozilla Firefox 19+ */
+  textarea::-moz-placeholder {
+    color: #ccc;
+  }
+  /* Internet Explorer 10+ */
+  textarea:-ms-input-placeholder {
+    color: #ccc;
+  }
+}
+
+.at-modal.at-modal{
+  .at-modal__container{
+    background: rgba(20, 40, 87, 0.9);
+    border-radius: 8px;
+    .at-modal__header{
+      text-align: start;
+      color: #fff;
+      font-size: 32px;
+      padding: 32px 52px 22px;
+      &::after{
+        display: none;
+      }
+    }
+    .at-modal__content{
+      color: #fff;
+      padding: 0 52px 24px;
+    }
+    .at-modal__footer{
+      &::before{
+        display: none;
+      }
+      .at-modal__action{
+        taro-button-core{
+          margin-top: 0;
+          background: rgba(10, 28, 72, 0.9);
+          color: #fff;
+          border-radius: 0;
+          font-size: 30px;
+        }
+        taro-button-core:not(:first-child){
+          border-left: 1px solid #07053F;
+        }
+        taro-button-core:not(:last-child){
+          border-right: 1px solid #07053F;
+        }
+      }
+    }
+  }
+}

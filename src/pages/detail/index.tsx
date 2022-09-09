@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Image, Text } from '@tarojs/components';
+import { AtNavBar } from 'taro-ui';
+import Taro from '@tarojs/taro';
 import headerImg from '../../assets/headerImg.png';
 import headerIcon from '../../assets/headerIcon.png';
 import './index.less';
@@ -18,14 +20,12 @@ const defaultData = [
   { name: '操作系统', value: 'Centos7' },
   { name: '额定功率(W)', value: '200W' },
   { name: '尺寸(CM)', value: '32*12*23' },
-  { name: '所在机房', value: '宁波交警1#机房' },
 ];
-const infoData = [defaultData, [], [], []];
+const infoData = [defaultData, defaultData, defaultData];
 enum INFOKEY {
   BASIC,
-  BELONG,
-  SERVICE,
-  RECORD,
+  RECORD1,
+  RECORD2,
 }
 
 const DetailPage: React.FC = () => {
@@ -37,15 +37,26 @@ const DetailPage: React.FC = () => {
   }, [activeKey]);
 
   return (
-    <View className='main'>
+    <View className='detail_main'>
       <View className='header' style={{ backgroundImage: `url(${headerImg})` }}>
         <View className='headerContent'>
           <Image src={headerIcon} className='icon' />
           <Text className='name'>宁波交警局资产管理系统</Text>
         </View>
       </View>
-      <View className='body'>
-        <View className='title'>资产信息</View>
+      <View className='detail_body'>
+        <AtNavBar
+          color='#fff'
+          leftIconType='chevron-left'
+          className='detail_navBar'
+          onClickLeftIcon={() => {
+            Taro.redirectTo({
+              url: '/pages/index/index'
+            });
+          }}
+        >
+          资产档案
+        </AtNavBar>
         <View className='infoButtonsRow'>
           <View
             className={activeKey === INFOKEY.BASIC ? 'infoButton infoButtonFirst infoButtonActive' : 'infoButton infoButtonFirst'}
@@ -54,22 +65,16 @@ const DetailPage: React.FC = () => {
             基本信息
           </View>
           <View
-            className={activeKey === INFOKEY.BELONG ? 'infoButton infoButtonActive' : 'infoButton'}
-            onClick={() => setActiveKey(INFOKEY.BELONG)}
+            className={activeKey === INFOKEY.RECORD1 ? 'infoButton infoButtonActive' : 'infoButton'}
+            onClick={() => setActiveKey(INFOKEY.RECORD1)}
           >
-            所属信息
+            变更记录
           </View>
           <View
-            className={activeKey === INFOKEY.RECORD ? 'infoButton infoButtonActive' : 'infoButton'}
-            onClick={() => setActiveKey(INFOKEY.RECORD)}
+            className={activeKey === INFOKEY.RECORD2 ? 'infoButton infoButtonLst infoButtonActive' : 'infoButton infoButtonLst'}
+            onClick={() => setActiveKey(INFOKEY.RECORD2)}
           >
-            服务信息
-          </View>
-          <View
-            className={activeKey === INFOKEY.SERVICE ? 'infoButton infoButtonLst infoButtonActive' : 'infoButton infoButtonLst'}
-            onClick={() => setActiveKey(INFOKEY.SERVICE)}
-          >
-            过往记录
+            盘点记录
           </View>
         </View>
         <View className='infoData'>

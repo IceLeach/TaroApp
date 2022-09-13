@@ -29,53 +29,53 @@ enum SELECTKEY {
   SURPLUS,
 }
 
-const pickerItemList = ['1', '2', '3'];
+const pickerItemList = ['202208182104307631010', '202208182104307631010', '202208182104307631010'];
 
 const bodyData = [
   {
     id: 1,
-    name: 'IT机柜009',
-    code: 'JHJ000000003',
-    model: 'S1700',
+    name: 'IT机柜A14',
+    code: 'JG00000386',
+    model: '60*100',
     type: '基础设施|机架|IT机柜',
-    address: '某市交警支队16#机房3',
+    address: '机动大队10#机房3',
   },
   {
     id: 2,
-    name: 'IT机柜009',
-    code: 'JHJ000000003',
-    model: 'S1700',
-    type: '基础设施|机架|IT机柜',
-    address: '某市交警支队16#机房3',
+    name: '13#空调',
+    code: 'JMKT0000035',
+    model: 'CR035',
+    type: '基础设施|暖通设备|精密空调',
+    address: '机动大队10#机房3',
   },
   {
     id: 3,
-    name: 'IT机柜009',
-    code: 'JHJ000000003',
-    model: 'S1700',
-    type: '基础设施|机架|IT机柜',
-    address: '某市交警支队16#机房3',
+    name: '江北APM90 UPS',
+    code: 'UPS00000009',
+    model: 'APM90',
+    type: '基础设施|配电设备|UPS',
+    address: '江北大队4#机房',
   },
-  {
-    id: 4,
-    name: 'IT机柜009',
-    code: 'JHJ000000003',
-    model: 'S1700',
-    type: '基础设施|机架|IT机柜',
-    address: '某市交警支队16#机房3',
-  },
-  {
-    id: 5,
-    name: 'IT机柜009',
-    code: 'JHJ000000003',
-    model: 'S1700',
-    type: '基础设施|机架|IT机柜',
-    address: '某市交警支队16#机房3',
-  },
+  // {
+  //   id: 4,
+  //   name: 'IT机柜009',
+  //   code: 'JHJ000000003',
+  //   model: 'S1700',
+  //   type: '基础设施|机架|IT机柜',
+  //   address: '某市交警支队16#机房3',
+  // },
+  // {
+  //   id: 5,
+  //   name: 'IT机柜009',
+  //   code: 'JHJ000000003',
+  //   model: 'S1700',
+  //   type: '基础设施|机架|IT机柜',
+  //   address: '某市交警支队16#机房3',
+  // },
 ];
 
 const InventoryPage: React.FC = () => {
-  const [activeKey, setActiveKey] = useState<string>();
+  const [activeKey, setActiveKey] = useState<string>(pickerItemList[0]);
   // const [currentInfo, setCurrentInfo] = useState<{ name: string, value: string }[]>([]);
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const [activeSelectKey, setActiveSelectKey] = useState<SELECTKEY>(SELECTKEY.ALL);
@@ -165,12 +165,12 @@ const InventoryPage: React.FC = () => {
               </Picker>
               <View className='inventory_detail'>
                 <View className='detail_row'>
-                  <View className='detail_col'>盘点日期：</View>
-                  <View className='detail_col'>盘点位置：</View>
+                  <View className='detail_col'>盘点日期：2022-08-19</View>
+                  <View className='detail_col'>盘点位置：市交警支队16#机房2</View>
                 </View>
                 <View className='detail_row'>
-                  <View className='detail_col'>盘点类型：</View>
-                  <View className='detail_col'>盘点人：</View>
+                  <View className='detail_col'>盘点类型：每季度</View>
+                  <View className='detail_col'>盘点人：管理员</View>
                 </View>
               </View>
               <View className='inventory_search'>
@@ -323,12 +323,13 @@ const InventoryPage: React.FC = () => {
           </View>
         )}
       </View>
-      <AtModal closeOnClickOverlay={false} isOpened={reviseModalData.visible}>
+      <AtModal className='inventory_editModel' closeOnClickOverlay={false} isOpened={reviseModalData.visible}>
         <AtModalHeader>资产修正</AtModalHeader>
         <AtModalContent>
           <AtTextarea
             value={reviseModalData.input}
             onChange={value => setReviseModalData(d => ({ ...d, input: value }))}
+            className='inventory_editModel_textArea'
             placeholder='填写盘亏的原因'
             count={false}
           />
@@ -353,6 +354,7 @@ const InventoryPage: React.FC = () => {
               <Image className='content_image' src={returnIcon} />
             </View>
           </Picker>
+          <View className='inventory_addModel_tip'>注：只限于同一个盘点位置，且未在盘点单上的资产。</View>
           <View className='inventory_addModel_textRow inventory_addModel_textRowMarginTop'>备注：</View>
           <AtTextarea
             value={addModalData.input}

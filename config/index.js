@@ -39,7 +39,8 @@ const config = {
     },
   },
   h5: {
-    publicPath: "/dcimH5",
+    // publicPath: "/dcimH5",
+    publicPath: "/asset-mobile",
     staticDirectory: "static",
     devServer: {
       https: true,
